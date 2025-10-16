@@ -37,10 +37,14 @@
     1) `mvn clean test`  - clean and run 
     2) `mvn allure:report`  - generate report
 - then you can open report in your browser using generated report in target/allure-report folder
-- by default Spring will run dev profile with dev properties, to run other(f.e. production) profiles, use additional command - **-Dspring.profiles.active=production** :
+- by default Spring runs dev profile with dev properties, to run other(f.e. production) profiles, use additional command - **-Dspring.profiles.active=production** :
     ```bash
     mvn clean test allure:report -Dspring.profiles.active=environmentToUse
     ```
+- by default Maven runs 1 thread of tests, to run more treads use additional command - **-Dthread.count=3** :
+  ```bash
+  mvn clean test allure:report -Dthread.count=numberOfConcurrentTests
+  ```
 - logging Allure Steps into console:
       `-Dlogging.steps=true`
 

@@ -10,6 +10,7 @@
     <name>Spribe QA-Automation Test Task</name>
 
     <properties>
+        <thread.count>1</thread.count>
         <default.active.environment.profile>dev</default.active.environment.profile>
         <tags.skip>--tags ~@Skip</tags.skip>
         <maven.compiler.source>11</maven.compiler.source>
@@ -65,18 +66,18 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
-<!--        &lt;!&ndash;In test mode JSON builder&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.json</groupId>-->
-<!--            <artifactId>json</artifactId>-->
-<!--            <version>20231013</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash;In test mode HTML builder&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>us.codecraft</groupId>-->
-<!--            <artifactId>xsoup</artifactId>-->
-<!--            <version>0.3.2</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash;In test mode JSON builder&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.json</groupId>-->
+        <!--            <artifactId>json</artifactId>-->
+        <!--            <version>20231013</version>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash;In test mode HTML builder&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>us.codecraft</groupId>-->
+        <!--            <artifactId>xsoup</artifactId>-->
+        <!--            <version>0.3.2</version>-->
+        <!--        </dependency>-->
         <!-- API, java.xml.bind module -->
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
@@ -121,12 +122,12 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.13.1</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>net.lightbody.bmp</groupId>-->
-<!--            <artifactId>browsermob-core</artifactId>-->
-<!--            <version>2.1.5</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>net.lightbody.bmp</groupId>-->
+        <!--            <artifactId>browsermob-core</artifactId>-->
+        <!--            <version>2.1.5</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--        </dependency>-->
         <!-- Rest-Assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -169,11 +170,6 @@
             <artifactId>awaitility</artifactId>
             <version>4.1.1</version>
         </dependency>
-        <!--        <dependency>-->
-<!--            <groupId>org.assertj</groupId>-->
-<!--            <artifactId>assertj-core</artifactId>-->
-<!--            <version>3.21.0</version>-->
-<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -207,18 +203,18 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M9</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${project.basedir}/src/test/resources/testng_xmls/tests.xml
-                        </suiteXmlFile>
-                    </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${project.basedir}/src/test/resources/testng.xmls/tests.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <threadCount>${thread.count}</threadCount>
+                    <parallel>tests</parallel>
                     <testFailureIgnore>true</testFailureIgnore>
                     <trimStackTrace>false</trimStackTrace>
                     <argLine>
                         -Dspring.profiles.active=${default.active.environment.profile}
-<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
                     </argLine>
                 </configuration>
                 <dependencies>
@@ -235,7 +231,9 @@
                 <version>2.10.0</version>
                 <configuration>
                     <reportVersion>2.7.0</reportVersion>
-                    <allureDownloadUrl>https://github.com/allure-framework/allure2/releases/download/2.7.0/allure-2.7.0.zip</allureDownloadUrl>
+                    <allureDownloadUrl>
+                        https://github.com/allure-framework/allure2/releases/download/2.7.0/allure-2.7.0.zip
+                    </allureDownloadUrl>
                     <reportDirectory>${project.basedir}/target/allure-report</reportDirectory>
                     <resultsDirectory>${project.basedir}/target/allure-results</resultsDirectory>
                 </configuration>
