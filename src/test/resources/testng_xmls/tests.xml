@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Spribe Test Test suite" parallel="tests" thread-count="1" preserve-order="false">
+    <test name="Supervisor api suite" parallel="methods" thread-count="1">
+        <classes>
+            <class name="com.spribe.apis.suites.supervisor.CreateUserApisTests"/>
+            <class name="com.spribe.apis.suites.supervisor.DeleteUserApisTests"/>
+            <class name="com.spribe.apis.suites.supervisor.UpdateUserApisTests"/>
+        </classes>
+    </test>
+    <test name="Admin api suite" parallel="methods" thread-count="1">
+        <classes>
+            <class name="com.spribe.apis.suites.admin.CreateUserApisTests"/>
+            <class name="com.spribe.apis.suites.admin.DeleteUserApisTests"/>
+            <class name="com.spribe.apis.suites.admin.UpdateUserApisTests"/>
+        </classes>
+    </test>
+    <test name="User api suite" parallel="methods" thread-count="1">
+        <classes>
+            <class name="com.spribe.apis.suites.user.CreateUserApisTests"/>
+            <class name="com.spribe.apis.suites.user.DeleteUserApisTests"/>
+            <class name="com.spribe.apis.suites.user.UpdateUserApisTests"/>
+        </classes>
+    </test>
+    <test name="Players controller api suite" parallel="methods" thread-count="1">
+        <classes>
+            <class name="com.spribe.apis.suites.general.CreateUserApiNegativeScenariosTests"/>
+            <class name="com.spribe.apis.suites.general.CreateUserApiPositiveScenariosTests"/>
+            <class name="com.spribe.apis.suites.general.UpdateUserApiNegativeScenariosTests"/>
+            <class name="com.spribe.apis.suites.general.UpdateUserApiPositiveScenariosTests"/>
+            <class name="com.spribe.apis.suites.general.GetUsersApiPositiveScenariosTests"/>
+        </classes>
+    </test>
+</suite>
