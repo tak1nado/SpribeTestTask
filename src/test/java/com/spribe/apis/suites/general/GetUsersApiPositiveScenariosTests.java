@@ -21,7 +21,7 @@ public class GetUsersApiPositiveScenariosTests extends PlayerControllerTests {
 
     @Test
     @Description("Check that get users api returns valid data")
-    public void createNewUserWithAgeLessThan16() {
+    public void getAllUsersApiDataValidation() {
         User searchUser = usersApiActions.userWithRoleIsCreated(PlayerControllerUserRole.USER);
 
         Response response = playerControllerUsersApi.getAllUsersData();

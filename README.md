@@ -50,3 +50,9 @@
 - download and set up Maven
 - `pom.xml` - file with plugins and dependencies
 
+## Documentation
+
+- Swagger UI URL `http://3.68.165.45/swagger-ui.html#/player-controller/getAllPlayersUsingGET`
+
+- Git repository `https://github.com/tak1nado/SpribeTestTask`
+

@@ -30,6 +30,7 @@
             <class name="com.spribe.apis.suites.general.UpdateUserApiNegativeScenariosTests"/>
             <class name="com.spribe.apis.suites.general.UpdateUserApiPositiveScenariosTests"/>
             <class name="com.spribe.apis.suites.general.GetUsersApiPositiveScenariosTests"/>
+            <class name="com.spribe.apis.suites.general.GetUserApiPositiveScenariosTests"/>
         </classes>
     </test>
 </suite>
