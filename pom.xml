@@ -10,7 +10,7 @@
     <name>Spribe QA-Automation Test Task</name>
 
     <properties>
-        <testEnv>dev</testEnv>
+        <default.active.environment.profile>dev</default.active.environment.profile>
         <tags.skip>--tags ~@Skip</tags.skip>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -217,7 +217,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <trimStackTrace>false</trimStackTrace>
                     <argLine>
-                        -Dspring.profiles.active=${testEnv}
+                        -Dspring.profiles.active=${default.active.environment.profile}
 <!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
                     </argLine>
                 </configuration>
